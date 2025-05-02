@@ -1,4 +1,4 @@
-LightVerse
+# LightVerse
 LightVerse is a responsive web platform for reading light novels online. It allows users to browse novels by category, search for specific titles, and save favorites. The platform features dark/light reading modes for better user experience.
 
 Features
