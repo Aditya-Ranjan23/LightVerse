@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="mystyle.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .slidecontainer {
+      width: 50%;
+    }
+
+    .slider {
+
+      width: 100%;
+      height: 15px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #04AA6D;
+      cursor: pointer;
+    }
+
+    a {
+      color: rgb(194, 194, 194);
+      text-decoration: none;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #04AA6D;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 4rem;
+      font-size: larger;
+      padding-top: 0.6rem;
+      padding-left: 4rem;
+
+    }
+
+    label {
+      font-size: 2rem;
+
+    }
+
+    * {
+      font-family: cursive;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body style="background-image: url(background.jpeg);color: aliceblue; background-size: contain;">
+  <header style="height: auto;width:100%;">
+
+    <div style="background-color: rgba(14, 3, 19, 0.767);height:80px ;margin: 0%;">
+      <div style="float: left; ">
+        <div style="font-size: 155%; padding-left: 10%;padding-top: 0%;"><a href="profile.jpeg"><img src="profile.jpeg"
+              style="height: 2rem;width: 3rem;border-radius: 1rem;"></a><a href="index.html"
+            style="color: white;text-decoration: none;">ANYNOVEL</a></div>
+      </div>
+      <div>
+        <div style="padding-top: 20px;"><input type="text" placeholder="Search"
+            style="position: absolute;height: 40px; width: 250px;border-radius: 6px;margin-left: 50%;background-color: rgba(79, 75, 75, 0.276);color: aliceblue;">
+        </div>
+
+        <div style="float: inline-end; padding-right: 4rem;font-size: 2rem;"><a href="login.html"
+            style="color: white;text-decoration: none;">Login</a></div>
+      </div>
+    </div>
+    <div style="background-color: #8444eb; height: 40px;">
+      <div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="library1.html">Library</a></li>
+          <li><a href="Reviews.html">Reviews</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="https://discord.com/invite/8Getws2f" target="_blank">Discord</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <h1 style="margin-left: 4rem;font-size:3.5rem; ">Review</h1>
+  <form>
+    <div style="margin: 4rem;">
+      <label for="novelname">NovelName</label><br>
+      <input type="text" id="novelname" name="novelname" placeholder="Enter the Novel's Name"
+        style="height: 2rem;width: 25rem;border-radius: 6px; background-color: rgba(0, 0, 0, 0.115); font-size: large;"><br>
+      <label for="url">Novel URL</label><br>
+      <input type="url" id="url" name="url" placeholder="Enter the novel url"
+        style="height: 2rem;width: 25rem;border-radius: 6px; background-color: rgba(0, 0, 0, 0.115); font-size: large;"><br><br>
+    </div>
+
+
+    <div class="slidecontainer" style="margin-left: 2rem;">
+      <p>World Building</p>
+      <input type="range" min="1" max="5" step="0.1" value="2.5" class="slider" id="myRange"
+        style="height: 2rem;width: 25rem;border-radius: 6px; background-color: rgba(0, 0, 0, 0.115); font-size: large;">
+      <p>Rating: <span id="ratingWorldBuilding"></span></p>
+
+      <p>Immersivness</p>
+      <input type="range" min="1" max="5" step="0.1" value="2.5" class="slider" id="myRange1"
+        style="height: 2rem;width: 25rem;border-radius: 6px; background-color: rgba(0, 0, 0, 0.115); font-size: large;">
+      <p>Rating: <span id="ratingImmersivness"></span></p>
+
+      <p>Writing Style</p>
+      <input type="range" min="1" max="5" step="0.1" value="2.5" class="slider" id="myRange2"
+        style="height: 2rem;width: 25rem;border-radius: 6px; background-color: rgba(0, 0, 0, 0.115); font-size: large;">
+      <p>Rating: <span id="ratingWritingStyle"></span></p>
+
+      <p>Character Development</p>
+      <input type="range" min="1" max="5" step="0.1" value="2.5" class="slider" id="myRange3"
+        style="height: 2rem;width: 25rem;border-radius: 6px; background-color: rgba(0, 0, 0, 0.115); font-size: large;">
+      <p>Rating: <span id="ratingCharacterDevelopment"></span></p>
+      <hr>
+      <p id="averageRating"></p>
+    </div>
+
+    <script>
+      var sliderWorldBuilding = document.getElementById("myRange");
+      var ratingWorldBuilding = document.getElementById("ratingWorldBuilding");
+      ratingWorldBuilding.innerHTML = sliderWorldBuilding.value;
+
+      sliderWorldBuilding.oninput = function () {
+        ratingWorldBuilding.innerHTML = this.value;
+      }
+
+      var sliderImmersivness = document.getElementById("myRange1");
+      var ratingImmersivness = document.getElementById("ratingImmersivness");
+      ratingImmersivness.innerHTML = sliderImmersivness.value;
+
+      sliderImmersivness.oninput = function () {
+        ratingImmersivness.innerHTML = this.value;
+      }
+      var sliderratingWritingStyle = document.getElementById("myRange2");
+      var ratingWritingStyle = document.getElementById("ratingWritingStyle");
+      ratingWritingStyle.innerHTML = sliderratingWritingStyle.value;
+
+      sliderratingWritingStyle.oninput = function () {
+        ratingWritingStyle.innerHTML = this.value;
+      }
+      var sliderratingCharacterDevelopment = document.getElementById("myRange3");
+      var ratingCharacterDevelopment = document.getElementById("ratingCharacterDevelopment");
+      ratingCharacterDevelopment.innerHTML = sliderratingCharacterDevelopment.value;
+
+      sliderratingCharacterDevelopment.oninput = function () {
+        ratingCharacterDevelopment.innerHTML = this.value;
+      }
+
+      function averageRating() {
+        var averageRating = (parseFloat(sliderWorldBuilding.value) +parseFloat(sliderImmersivness.value) +parseFloat(sliderratingWritingStyle.value) +parseFloat(sliderratingCharacterDevelopment.value)) / 4;
+        document.getElementById("averageRating").innerHTML = averageRating;
+      }
+
+      document.getElementById("myRange").addEventListener("input", averageRating);
+      document.getElementById("myRange1").addEventListener("input", averageRating);
+      document.getElementById("myRange2").addEventListener("input", averageRating);
+      document.getElementById("myRange3").addEventListener("input", averageRating);
+
+
+    </script>
+
+
+
+    <p><label for="w3review">
+        <h1>Your Review</h1>
+      </label></p>
+    <textarea id="w3review" name="w3review" rows="4" cols="50"
+      style="height: 100px;border:#8444eb solid;border-radius: 7px;background-color: rgba(0, 0, 0, 0.144);color:white;">Write Your Review.</textarea>
+    <br>
+    <input type="submit" value="Submit" onclick="alert('Submitted')"
+      style="border: #8444eb solid;border-radius: 4px; background-color: rgba(0, 0, 0, 0.144);color:white;">
+  </form>
+
+
+</body>
+
+</html>
